@@ -1,0 +1,16 @@
+<h4>Past Hikes</h4>
+  <div class="row">
+    <div class="col-xs-6">
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let hike of pastHikes;" [index]="i" >{{hike.location}}, {{hike.name}}, {{hike.year}}
+          <img [src] = "hike.imagePath"
+          class="img-responsive"
+          style="max-height: 300px; float: right; border: forestgreen solid 2px; border-radius: 5px; margin-left: 3px;">
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
