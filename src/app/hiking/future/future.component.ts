@@ -3,6 +3,7 @@ import { HikingComponent } from '../hiking.component';
 
 import { Hike } from '../hike.model';
 import { HikingService } from '../hiking.service';
+import { Router, ActivatedRoute, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-future',
@@ -12,12 +13,16 @@ import { HikingService } from '../hiking.service';
 export class FutureComponent implements OnInit {
   futureHikes: Hike[];
 
-  constructor(private hikingService: HikingService) { }
+  constructor(private hikingService: HikingService,
+              private router: Router,
+      private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.futureHikes=this.hikingService.getFutureHikes();
   }
 
-
+  onNewHike() {
+    this.router.navigate(['new'], {relativeTo: this.route });
+  }
 
 }
